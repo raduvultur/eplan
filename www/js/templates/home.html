@@ -1,0 +1,40 @@
+<ion-view title="ePlan">
+
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-plus">
+      </button>
+    </ion-nav-buttons>
+    <ion-header-bar align-title="center" class="bar-subheader">
+      <h1 class="title">{{user.username}}, manage your events</h1>
+    </ion-header-bar>
+
+    <ion-content padding="true">
+      <div class="card" ng-repeat="event in events">
+        <div class="item item-text-wrap">
+          {{event.name}}
+        </div>
+      </div>          
+    </ion-content>
+
+    <ion-footer-bar align-title="left" class="bar-stable bar-big">
+      <div class="row">
+        <div class="col">
+          <div class="item item-icon-left">
+            <i class="icon ion-ios7-calendar-outline"></i>
+            <p>Next Event</p>
+            <h2>November 05, 2014</h2>
+            <p>Wedding</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="item item-icon-left">
+            <i class="icon ion-cash"></i>
+            <p>Total Budget</p>
+            <h2>$ 25 000</h2>
+            <p>2 Events</p>
+          </div>            
+        </div>
+      </div>
+    </ion-footer-bar>
+
+</ion-view>

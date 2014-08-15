@@ -1,0 +1,72 @@
+<ion-view hide-nav-bar="true">
+<ion-header-bar align-title="left" class="bar-positive">
+  <div class="buttons">
+    <button class="button button-icon icon ion-ios7-arrow-left" ng-click="goBack()">&nbsp;<span class="padding-left">{{supplier.name}}</span></button>
+    <h1 class="title">&nbsp;</h1>
+    <button class="button button-icon icon ion-compose" ng-click="openModalSupplier()"></button>
+  </div>
+</ion-header-bar>
+<ion-content>
+
+  <div class="list card">
+    <a href="http://maps.google.com/?q={{supplier.address}}" class="item item-icon-left">
+      <i class="icon ion-ios7-location-outline half-opacity"></i>
+      {{supplier.address}}
+    </a>
+  
+    <a href="tel:{{supplier.phone}}" class="item item-icon-left">
+      <i class="icon ion-ios7-telephone-outline half-opacity"></i>
+      {{supplier.phone}}
+    </a>
+  
+    <a href="mailto:{{supplier.email}}" class="item item-icon-left">
+      <i class="icon ion-ios7-at-outline half-opacity"></i>
+      {{supplier.email}}
+    </a>
+  
+    <a href="{{supplier.url}}" class="item item-icon-left">
+      <i class="icon ion-ios7-world-outline half-opacity"></i>
+      {{supplier.url}}
+    </a>
+  </div>
+
+  <div class="list card">
+  
+    <div class="item item-avatar">
+      <img src="img/{{supplier.thumb}}">
+      <h2>Bicycle Bouquet</h2>
+      <p>November 05, 2014</p>
+    </div>
+  
+    <div class="item item-body">
+      <img class="full-image" src="img/{{supplier.image}}">
+      <p>
+        This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+        the content is from a card-body consisting of an image and paragraph text. The footer
+        consists of tabs, icons aligned left, within the card-footer.
+      </p>
+      <p>
+        <a href="#" class="subdued">1 Like</a>
+        <a href="#" class="subdued">5 Comments</a>
+      </p>
+    </div>
+  
+    <div class="item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" href="#">
+        <i class="icon ion-thumbsup"></i>
+        Like
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-chatbox"></i>
+        Comment
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-share"></i>
+        Share
+      </a>
+    </div>
+  
+  </div>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,12 @@
+<ion-view title="Categories" left-buttons="leftButtons">
+    <ion-content>
+      <div class="list">
+        <a class="item item-icon-left item-icon-right" ui-sref="eplanmenu.suppliers({categoryId: {{category.id}} })" ng-repeat="category in categories | orderBy:'category' | orderBy:'id'">
+          <i class="icon {{ category.icon }}"></i>
+          {{ category.name }}
+          <span class="badge badge-positive margin-right">{{ category.id }}</span>
+          <i class="icon ion-ios7-arrow-right half-opacity"></i>
+        </a>
+      </div>
+    </ion-content>
+</ion-view>
