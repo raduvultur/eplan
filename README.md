@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Ionic App Base
 =====================
 
@@ -86,3 +87,9 @@ Warning: the nightly version is not stable.
 ## Issues
 Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/contribute/#issues) to the main Ionic repository. On the other hand, pull requests are welcome here!
 
+=======
+eplan
+=====
+
+Event planner with angularjs and ionic
+>>>>>>> 9587b07c6de4b88f321385f3dde01d52017a02f8
