@@ -7,4 +7,11 @@ function SettingsCtrl($scope, $state, LocalStorageService) {
     $state.go('eplanmenu.home');
   };
   
+  $scope.deleteDB = function() {
+    console.log('Drop DB');
+    LocalStorageService.clear();
+    $scope.events = {};
+    $scope.user = {};
+  };
+  
 }

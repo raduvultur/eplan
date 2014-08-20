@@ -1,19 +1,30 @@
 <ion-view title="ePlan">
 
     <ion-nav-buttons side="right">
-      <button class="button button-icon button-clear ion-plus">
-      </button>
+      <button class="button button-icon button-clear ion-plus" ng-click="openModalNewEvent()"></button>
     </ion-nav-buttons>
     <ion-header-bar align-title="center" class="bar-subheader">
       <h1 class="title">{{user.username}}, manage your events</h1>
     </ion-header-bar>
 
     <ion-content padding="true">
-      <div class="card" ng-repeat="event in events">
-        <div class="item item-text-wrap">
-          {{event.name}}
+      <div class="card card-event" ng-repeat="event in events"  style="background: url('img/event-back/{{event.background}}') no-repeat scroll center center rgba(255, 255, 255, 0.95)">
+        <div class="item item-text-wrap padding-zero">
+          <a ui-sref="eplanmenu.eventdetails({eventId: {{event.ID}} })" class="button button-full button-large button-clear button-dark">{{event.name}}</a>
         </div>
-      </div>          
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" ng-click="openModalEditEvent({{event.ID}})">
+            <i class="icon ion-ios7-compose-outline"></i>
+            Edit
+          </a>
+          <a class="tab-item assertive" ng-click="deleteEvent({{event.ID}})">
+            <i class="icon ion-ios7-trash-outline"></i>
+            Delete
+          </a>
+        </div>
+      </div> 
+      
+      <br><br>
     </ion-content>
 
     <ion-footer-bar align-title="left" class="bar-stable bar-big">
@@ -21,17 +32,17 @@
         <div class="col">
           <div class="item item-icon-left">
             <i class="icon ion-ios7-calendar-outline"></i>
-            <p>Next Event</p>
-            <h2>November 05, 2014</h2>
-            <p>Wedding</p>
+            <p class="small-footer-data">Next Event</p>
+            <p class="small-footer-data"><strong>2014-09-15</strong></p>
+            <p class="small-footer-data">Wedding</p>
           </div>
         </div>
         <div class="col">
           <div class="item item-icon-left">
             <i class="icon ion-cash"></i>
-            <p>Total Budget</p>
-            <h2>$ 25 000</h2>
-            <p>2 Events</p>
+            <p class="small-footer-data">Total Budget</p>
+            <p class="small-footer-data"><strong>$ 25 000</strong></p>
+            <p class="small-footer-data">2 Events</p>
           </div>            
         </div>
       </div>

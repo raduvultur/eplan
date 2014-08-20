@@ -16,6 +16,10 @@ function LocalStorageService ($window) {
   LocalStorageService.getObject = function(key) {
       return JSON.parse($window.localStorage[key] || '{}');
   };
+  
+  LocalStorageService.clear = function() {
+      $window.localStorage.clear();
+  };
     
   return LocalStorageService;
 }

@@ -1,0 +1,33 @@
+<ion-modal-view ng-controller="ModalEventCtrl">
+<ion-header-bar class="bar bar-header bar-positive">
+  <h1 class="title">{{modalEventTitle}}</h1>
+  <button class="button button-clear button-primary" ng-click="closeModalEvent()">Cancel</button>
+</ion-header-bar>
+<ion-content>
+  <div class="padding">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label label-small"><i class="icon ion-ios7-person-outline"></i></span>
+        <input type="text" placeholder="Event Name" ng-model="event.name">
+      </label>
+      <label class="item item-input">
+        <span class="input-label label-small"><i class="icon ion-ios7-calendar-outline"></i></span>
+        <input type="date" placeholder="Event Date" ng-model="event.date">
+      </label>  
+      <label class="item item-input">
+        <span class="input-label label-small"><i class="icon ion-ios7-time-outline"></i></span>
+        <input type="time" placeholder="Event Time" ng-model="event.time">
+      </label>      
+      <label class="item item-input item-stacked-label">
+        <span class="input-label label-small"><i class="icon ion-ios7-location-outline"></i></span>
+        <textarea rows="2" placeholder="Event Location" ng-model="event.location"></textarea>
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label"><i class="icon ion-ios7-paper-outline"></i></span>
+        <textarea rows="3" placeholder="Event Details" ng-model="event.details"></textarea>
+      </label>
+      <button class="button button-full button-positive" ng-click="saveEvent()">Save</button>
+    </div>
+  </div>
+</ion-content>
+</ion-modal-view>

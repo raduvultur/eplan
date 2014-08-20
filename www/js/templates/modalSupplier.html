@@ -1,6 +1,6 @@
 <ion-modal-view ng-controller="ModalSupplierCtrl">
 <ion-header-bar class="bar bar-header bar-positive">
-  <h1 class="title">New Supplier</h1>
+  <h1 class="title">{{modalSupplierTitle}}</h1>
   <button class="button button-clear button-primary" ng-click="closeModalSupplier()">Cancel</button>
 </ion-header-bar>
 <ion-content>
@@ -8,29 +8,29 @@
     <div class="list">
       <label class="item item-input">
         <span class="input-label label-small"><i class="icon ion-ios7-person-outline"></i></span>
-        <input type="text" placeholder="Name" ng-model="newSupplier.name">
+        <input type="text" placeholder="Name" ng-model="supplier.name">
       </label>
       <label class="item item-input">
         <span class="input-label label-small"><i class="icon ion-ios7-telephone-outline"></i></span>
-        <input type="tel" placeholder="Phone" ng-model="newSupplier.phone">
+        <input type="tel" placeholder="Phone" ng-model="supplier.phone">
       </label>  
       <label class="item item-input">
         <span class="input-label label-small"><i class="icon ion-ios7-at-outline"></i></span>
-        <input type="email" placeholder="Email" ng-model="newSupplier.email">
+        <input type="email" placeholder="Email" ng-model="supplier.email">
       </label>    
       <label class="item item-input">
         <span class="input-label label-small"><i class="icon ion-ios7-world-outline"></i></span>
-        <input type="url" placeholder="Website" ng-model="newSupplier.website">
+        <input type="url" placeholder="Website" ng-model="supplier.url">
       </label>
       <label class="item item-input item-stacked-label">
         <span class="input-label label-small"><i class="icon ion-ios7-location-outline"></i></span>
-        <textarea rows="2" placeholder="Address" ng-model="newSupplier.address"></textarea>
+        <textarea rows="2" placeholder="Address" ng-model="supplier.address"></textarea>
       </label>
       <label class="item item-input item-stacked-label">
         <span class="input-label"><i class="icon ion-ios7-paper-outline"></i></span>
-        <textarea rows="3" placeholder="Details" ng-model="newSupplier.details"></textarea>
+        <textarea rows="3" placeholder="Details" ng-model="supplier.details"></textarea>
       </label>               
-      <button class="button button-full button-positive" ng-click="createSupplier()">Create</button>
+      <button class="button button-full button-positive" ng-click="saveSupplier()">Save</button>
     </div>
   </div>
 </ion-content>

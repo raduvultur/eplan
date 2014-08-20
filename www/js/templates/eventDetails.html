@@ -1,0 +1,158 @@
+<ion-view hide-nav-bar="true">
+<ion-header-bar align-title="left" class="bar-positive">
+  <div class="buttons">
+    <button class="button button-icon icon ion-ios7-arrow-left" ng-click="goBack()">&nbsp;<span class="padding-left">{{event.name}}</span></button>
+    <h1 class="title">&nbsp;</h1>
+    <button class="button button-icon icon ion-compose" ng-click="openModalEditEvent({{event.ID}})"></button>
+  </div>
+</ion-header-bar>
+<ion-content>
+
+  <div class="list card">
+    <div class="item item-icon-left">
+      <i class="icon ion-cash half-opacity"></i>
+      $3700
+    </div>  
+    <a href="http://maps.google.com/?q={{event.location}}" class="item item-icon-left">
+      <i class="icon ion-ios7-location-outline half-opacity"></i>
+      {{event.location}}
+    </a>
+    <div class="item item-icon-left">
+      <i class="icon ion-ios7-calendar-outline half-opacity"></i>
+      {{event.date}} @ {{event.time}}
+    </div>
+    <div class="item item-icon-left">
+      <i class="icon ion-ios7-paper-outline half-opacity"></i>
+      {{event.details}}
+    </div>
+  </div>
+  
+  <button class="button button-full button-positive" ng-click="addSuppliers()">Add Suppliers</button>
+
+  <div class="list card">
+    <div class="item item-icon-left">
+      <i class="icon ion-model-s half-opacity"></i>
+      Limo Service
+    </div>
+  
+    <div class="item item-body">
+      <div class="row small-details-header">
+        <div class="col">Next appointment</div>
+      </div>
+      <div class="row small-details-data">
+        <div class="col"><strong>2014-09-08 @ 13:00</strong></div>
+      </div>       
+      <div class="row price-header">
+        <div class="col">Price</div>
+        <div class="col">Downpayment</div>
+        <div class="col">Rest</div>
+      </div>
+      <div class="row price-data">
+        <div class="col"><strong>$400</strong></div>
+        <div class="col"><strong>$50</strong></div>
+        <div class="col"><strong>$350</strong></div>
+      </div>
+    </div>
+  
+    <div class="item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" href="#">
+        <i class="icon ion-compose"></i>
+        Edit
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-chatbox"></i>
+        Notes
+      </a>
+      <a class="tab-item assertive" href="#">
+        <i class="icon ion-ios7-trash-outline"></i>
+        Delete
+      </a>
+    </div>
+  </div> 
+
+  <div class="list card">
+    <div class="item item-icon-left">
+      <i class="icon ion-leaf half-opacity"></i>
+      Monceau Flowers
+    </div>
+  
+    <div class="item item-body">
+      <div class="row small-details-header">
+        <div class="col">Next appointment</div>
+      </div>
+      <div class="row small-details-data">
+        <div class="col"><strong>2014-09-08 @ 13:00</strong></div>
+      </div>       
+      <div class="row price-header">
+        <div class="col">Price</div>
+        <div class="col">Downpayment</div>
+        <div class="col">Rest</div>
+      </div>
+      <div class="row price-data">
+        <div class="col"><strong>$400</strong></div>
+        <div class="col"><strong>$50</strong></div>
+        <div class="col"><strong>$350</strong></div>
+      </div>
+    </div>
+  
+    <div class="item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" href="#">
+        <i class="icon ion-compose"></i>
+        Edit
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-chatbox"></i>
+        Notes
+      </a>
+      <a class="tab-item assertive" href="#">
+        <i class="icon ion-ios7-trash-outline"></i>
+        Delete
+      </a>
+    </div>
+  </div> 
+
+  <div class="list card">
+    <div class="item item-icon-left">
+      <i class="icon ion-camera half-opacity"></i>
+      Pierre&Sons Photographers
+    </div>
+  
+    <div class="item item-body">
+      <div class="row small-details-header">
+        <div class="col">Next appointment</div>
+      </div>
+      <div class="row small-details-data">
+        <div class="col"><strong>2014-09-08 @ 13:00</strong></div>
+      </div>       
+      <div class="row price-header">
+        <div class="col">Price</div>
+        <div class="col">Downpayment</div>
+        <div class="col">Rest</div>
+      </div>
+      <div class="row price-data">
+        <div class="col"><strong>$400</strong></div>
+        <div class="col"><strong>$50</strong></div>
+        <div class="col"><strong>$350</strong></div>
+      </div>
+    </div>
+  
+    <div class="item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" href="#">
+        <i class="icon ion-compose"></i>
+        Edit
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-chatbox"></i>
+        Notes
+      </a>
+      <a class="tab-item assertive" href="#">
+        <i class="icon ion-ios7-trash-outline"></i>
+        Delete
+      </a>
+    </div>
+  </div>  
+  
+  <br>
+  
+</ion-content>
+</ion-view>

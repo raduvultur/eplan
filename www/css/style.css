@@ -1,13 +1,14 @@
 .maintitle{text-align:center}
 .margin-right{margin-right: 20px}
 .margin-zero{margin: 0}
+.padding-zero{padding: 0}
 .half-opacity{opacity: 0.5}
 .text-center{text-align: center}
 .label-small{width: 10%;font-size: 20px}
 .label-small + input{margin-right: 5px}
-.bar-big {height:100px;}
+.bar-big {height:80px}
 .bar-big p, .bar-big h2{margin: 0}
-.bar-big .item{padding: 5px 5px 5px 54px;}
+.bar-big .item{padding: 5px 5px 5px 54px}
 
 #map {
   width: 100%;
@@ -17,3 +18,17 @@
 .scroll {
   height: 100%;
 }
+
+.card-event .item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(100, 100, 100, 0.1);
+}
+
+.price-header {
+    font-size: 70%;
+    padding-bottom: 0;
+}
+
+.small-details-header{font-size: 80%;padding-bottom: 0}
+.small-details-data{font-size: 80% !important}
+.small-footer-data {font-size: 75% !important;line-height: 110%;}

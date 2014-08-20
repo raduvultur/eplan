@@ -12,7 +12,8 @@ angular.module('App').config(function($stateProvider, $urlRouterProvider) {
       url: '/home',
       views: {
         'menuContent' :{
-          templateUrl: 'js/templates/home.html'
+          templateUrl: 'js/templates/home.html',
+          controller: 'MainCtrl'
         }
       }
     })
@@ -58,6 +59,15 @@ angular.module('App').config(function($stateProvider, $urlRouterProvider) {
         'menuContent' :{
           templateUrl: 'js/templates/supplierDetails.html',
           controller: 'SupplierDetailsCtrl'
+        }
+      }
+    })    
+    .state('eplanmenu.eventdetails', {
+      url: '/event/:eventId',
+      views: {
+        'menuContent' :{
+          templateUrl: 'js/templates/eventDetails.html',
+          controller: 'EventDetailsCtrl'
         }
       }
     });
