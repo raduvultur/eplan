@@ -1,5 +1,5 @@
-angular.module('App').controller("MainCtrl", ["$scope", "$state", "$log", "$ionicSideMenuDelegate", "$ionicNavBarDelegate", "$ionicModal", "LocalStorageService", "EventService", MainCtrl]);
-function MainCtrl($scope, $state, $log, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicModal, LocalStorageService, EventService) {
+angular.module('App').controller("MainCtrl", ["$scope", "$state", "$log", "$ionicSideMenuDelegate", "$ionicNavBarDelegate", "$ionicModal", "$ionicGesture", "$window", "$interval", "LocalStorageService", "EventService", MainCtrl]);
+function MainCtrl($scope, $state, $log, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicModal, $ionicGesture, $window, $interval, LocalStorageService, EventService) {
 
   if (LocalStorageService.getObject('userinfo').username) {
     // got the userinfo
@@ -62,6 +62,17 @@ function MainCtrl($scope, $state, $log, $ionicSideMenuDelegate, $ionicNavBarDele
   $scope.$on('$destroy', function() {
     if ($scope.modalEvent)
       $scope.modalEvent.remove();
+  });
+  
+  //var rootel = angular.element(document.querySelector('body'));
+  var controls = document.querySelectorAll('.card-event');
+  [].forEach.call(controls, function (ctl) {
+    var element = angular.element(ctl);               
+    $ionicGesture.on('dragright', function (event) {
+      $scope.$apply(function () {
+        console.log('event');
+      });
+    }, element);
   });
   
 }

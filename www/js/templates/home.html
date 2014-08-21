@@ -8,22 +8,8 @@
     </ion-header-bar>
 
     <ion-content padding="true">
-      <div class="card card-event" ng-repeat="event in events"  style="background: url('img/event-back/{{event.background}}') no-repeat scroll center center rgba(255, 255, 255, 0.95)">
-        <div class="item item-text-wrap padding-zero">
-          <a ui-sref="eplanmenu.eventdetails({eventId: {{event.ID}} })" class="button button-full button-large button-clear button-dark">{{event.name}}</a>
-        </div>
-        <div class="item tabs tabs-secondary tabs-icon-left">
-          <a class="tab-item" ng-click="openModalEditEvent({{event.ID}})">
-            <i class="icon ion-ios7-compose-outline"></i>
-            Edit
-          </a>
-          <a class="tab-item assertive" ng-click="deleteEvent({{event.ID}})">
-            <i class="icon ion-ios7-trash-outline"></i>
-            Delete
-          </a>
-        </div>
-      </div> 
-      
+      <event-Card ng-repeat="event in events"></event-Card>
+
       <br><br>
     </ion-content>
 
