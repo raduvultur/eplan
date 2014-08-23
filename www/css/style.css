@@ -10,25 +10,16 @@
 .bar-big p, .bar-big h2{margin: 0}
 .bar-big .item{padding: 5px 5px 5px 54px}
 
-#map {
-  width: 100%;
-  height: 100%;
-}
+#map {width: 100%;height: 100%}
 
-.scroll {
-  height: 100%;
-}
+.scroll {height: 100%}
 
-.card-event .item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-color: rgba(100, 100, 100, 0.1);
-}
-
-.price-header {
-    font-size: 70%;
-    padding-bottom: 0;
-}
+.price-header {font-size: 70%;padding-bottom: 0}
 
 .small-details-header{font-size: 80%;padding-bottom: 0}
 .small-details-data{font-size: 80% !important}
-.small-footer-data {font-size: 75% !important;line-height: 110%;}
+.small-footer-data {font-size: 75% !important;line-height: 110%}
+
+ion-content {background-color: #F9F9F9}
+.card {box-shadow: none}
+.card-condensed {line-height: 0}

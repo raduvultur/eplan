@@ -13,6 +13,9 @@ function ModalEventCtrl($scope, EventService) {
   }
   
   $scope.saveEvent = function() {
+    if ($scope.event.name.length===0)
+      return;
+    
     if ($scope.edit){
       console.log('Created Event', $scope.event);
     } else {

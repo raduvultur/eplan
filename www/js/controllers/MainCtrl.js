@@ -1,5 +1,5 @@
-angular.module('App').controller("MainCtrl", ["$scope", "$state", "$log", "$ionicSideMenuDelegate", "$ionicNavBarDelegate", "$ionicModal", "$ionicGesture", "$window", "$interval", "LocalStorageService", "EventService", MainCtrl]);
-function MainCtrl($scope, $state, $log, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicModal, $ionicGesture, $window, $interval, LocalStorageService, EventService) {
+angular.module('App').controller("MainCtrl", ["$scope", "$state", "$log", "$ionicSideMenuDelegate", "$ionicNavBarDelegate", "$ionicModal", "$ionicPopup", "$window", "$interval", "LocalStorageService", "EventService", MainCtrl]);
+function MainCtrl($scope, $state, $log, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicModal, $ionicPopup, $window, $interval, LocalStorageService, EventService) {
 
   if (LocalStorageService.getObject('userinfo').username) {
     // got the userinfo
@@ -18,11 +18,6 @@ function MainCtrl($scope, $state, $log, $ionicSideMenuDelegate, $ionicNavBarDele
   $scope.goBack = function() {
     $ionicNavBarDelegate.back();
   };
-  
-  $scope.deleteEvent = function(eventID) {
-    EventService.deleteEvent(eventID);
-    $scope.events = EventService.list();
-  };
 
   var createModal = function() {
       
@@ -31,18 +26,6 @@ function MainCtrl($scope, $state, $log, $ionicSideMenuDelegate, $ionicNavBarDele
   $scope.openModalNewEvent = function() {
     $scope.event = {};
     $scope.event.guid = EventService.generateUUID();
-    $ionicModal.fromTemplateUrl('js/templates/modalEvent.html', {
-      scope: $scope,
-      animation: 'slide-in-up',
-      focusFirstInput: true
-    }).then(function(modal) {
-      $scope.modalEvent = modal;
-      $scope.modalEvent.show();
-    });
-  };
-  
-  $scope.openModalEditEvent = function(eventID) {
-    $scope.event = EventService.getEvent(eventID);
     $ionicModal.fromTemplateUrl('js/templates/modalEvent.html', {
       scope: $scope,
       animation: 'slide-in-up',
@@ -64,15 +47,38 @@ function MainCtrl($scope, $state, $log, $ionicSideMenuDelegate, $ionicNavBarDele
       $scope.modalEvent.remove();
   });
   
-  //var rootel = angular.element(document.querySelector('body'));
-  var controls = document.querySelectorAll('.card-event');
-  [].forEach.call(controls, function (ctl) {
-    var element = angular.element(ctl);               
-    $ionicGesture.on('dragright', function (event) {
-      $scope.$apply(function () {
-        console.log('event');
-      });
-    }, element);
+  $scope.$on('LastRepeaterElement', function(){
+    /*var controls = document.querySelectorAll('.card-drag');
+    [].forEach.call(controls, function (ctl) {
+      var element = angular.element(ctl);               
+      $ionicGesture.on('dragleft', function (event) {
+        console.log('event ', event.srcElement);
+      }, element);
+    });*/
   });
+  
+  $scope.stopDrag = function(){
+    $ionicSideMenuDelegate.canDragContent(false);
+  };
+  
+  $scope.letDrag = function(){
+    $ionicSideMenuDelegate.canDragContent(true);
+  };
+
+ // Confirm delete dialog
+ $scope.showConfirm = function(eventId) {
+   var selectedEvent = EventService.getEvent(eventId);
+   var confirmPopup = $ionicPopup.confirm({
+     title: 'Delete Event',
+     template: 'Are you sure you want to delete '+selectedEvent.name+'?'
+   });
+   confirmPopup.then(function(res) {
+     if(res) {
+       console.log('Deleting '+selectedEvent.name);
+       EventService.deleteEvent(eventId);
+       $scope.events = EventService.list();
+     }
+   });
+ };  
   
 }

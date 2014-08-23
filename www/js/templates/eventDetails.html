@@ -8,7 +8,7 @@
 </ion-header-bar>
 <ion-content>
 
-  <div class="list card">
+  <div class="list card card-condensed">
     <div class="item item-icon-left">
       <i class="icon ion-cash half-opacity"></i>
       $3700
@@ -27,8 +27,10 @@
     </div>
   </div>
   
-  <button class="button button-full button-positive" ng-click="addSuppliers()">Add Suppliers</button>
-
+  <p class="padding-horizontal">
+    <button class="button button-block button-positive" ng-click="addSuppliers()">Add Suppliers</button>  
+  </p>
+  
   <event-detail-card ng-repeat="eSupplier in eventSuppliers"></event-detail-card>
   
   <br>
