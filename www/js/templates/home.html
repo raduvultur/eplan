@@ -3,14 +3,14 @@
     <ion-nav-buttons side="right">
       <button class="button button-icon button-clear ion-plus" ng-click="openModalNewEvent()"></button>
     </ion-nav-buttons>
+    
     <ion-header-bar align-title="center" class="bar-subheader">
       <h1 class="title">{{user.username}}, manage your events</h1>
     </ion-header-bar>
 
-    <ion-content padding="true">
+    <ion-content padding="true" scroll="true">
       <event-Card ng-repeat="event in events" emit-last-repeater-element></event-Card>
-
-      <br><br>
+      <br>
     </ion-content>
 
     <ion-footer-bar align-title="left" class="bar-stable bar-big">

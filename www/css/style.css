@@ -1,6 +1,6 @@
 .maintitle{text-align:center}
 .margin-right{margin-right: 20px}
-.margin-zero{margin: 0}
+.margin-zero{margin: 0 !important}
 .padding-zero{padding: 0}
 .half-opacity{opacity: 0.5}
 .text-center{text-align: center}
@@ -21,5 +21,17 @@
 .small-footer-data {font-size: 75% !important;line-height: 110%}
 
 ion-content {background-color: #F9F9F9}
+.no-background {background:none}
 .card {box-shadow: none}
 .card-condensed {line-height: 0}
+
+.feed-content img{height: auto;width: 100%}
+
+.fc-header-title h2 {font-size: 130%}
+.fc-today {background: none repeat scroll 0 0 #98CAFF}
+
+.fc-agenda {
+    padding-bottom: 100px;
+}
+
+.calendar .activeDay{font-weight: bold;background: none repeat scroll 0 0 #E6F1FC;}

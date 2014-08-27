@@ -79,6 +79,6 @@ function MainCtrl($scope, $state, $log, $ionicSideMenuDelegate, $ionicNavBarDele
        $scope.events = EventService.list();
      }
    });
- };  
+ }; 
   
 }

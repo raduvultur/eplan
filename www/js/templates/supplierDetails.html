@@ -30,25 +30,27 @@
     </a>
   </div>
 
-  <div class="list card">
-  
-    <div class="item item-avatar">
-      <img src="img/{{supplier.thumb}}">
-      <h2>Bicycle Bouquet</h2>
-      <p>November 05, 2014</p>
+  <p class="padding-horizontal">
+    <button class="button button-block button-positive" ng-click="loadFeed('{{supplier.feedrss}}', false)">Load RSS Feed</button>  
+  </p>
+
+  <div class="list card" ng-show="isLoading">
+    <div class="item item-icon-left">
+      <i class="icon ion-loading-c"></i>
+      Loading...
     </div>
+  </div>
+
+  <div class="list card" ng-repeat="entry in feed_result.entries" ng-cloak>
+  
+    <a class="item" href="{{entry.link}}">
+      <h2>{{entry.title}}</h2>
+      <p>{{entry.publishedDate}}</p>
+    </a>
   
     <div class="item item-body">
-      <img class="full-image" src="img/{{supplier.image}}">
-      <p>
-        This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-        the content is from a card-body consisting of an image and paragraph text. The footer
-        consists of tabs, icons aligned left, within the card-footer.
-      </p>
-      <p>
-        <a href="#" class="subdued">1 Like</a>
-        <a href="#" class="subdued">5 Comments</a>
-      </p>
+      <img class="full-image" ng-repeat="thumbnail in mediaOne(entry).thumbnails" ng-src="{{thumbnail.url}}">
+      <p ng-bind-html="entry.content" class="feed-content"></p>
     </div>
   
     <div class="item tabs tabs-secondary tabs-icon-left">

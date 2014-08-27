@@ -1,4 +1,4 @@
-angular.module('App', ['ionic']);
+angular.module('App', ['ionic', 'ui.calendar']);
 
 angular.module('App').config(function($stateProvider, $urlRouterProvider) {
 
@@ -17,6 +17,15 @@ angular.module('App').config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('eplanmenu.calendar', {
+      url: '/calendar',
+      views: {
+        'menuContent' :{
+          templateUrl: 'js/templates/calendar.html',
+          controller: 'CalendarCtrl'
+        }
+      }
+    })    
     .state('eplanmenu.settings', {
       url: '/settings',
       views: {
@@ -75,16 +84,15 @@ angular.module('App').config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/eplan/home");
 });
 
-angular.module('App').run([
-    '$state', '$templateCache', '$http', (function ($state, $templateCache, $http) {
-        var url;
-        /*for (var i in $route.routes) {
-            if ($route.routes[i].preload) {
-                if (url = $route.routes[i].templateUrl) {
-                    $http.get(url, { cache: $templateCache });
-                }
-            }
-        }*/
+angular.module('App').run(['$state', '$templateCache', '$http', (function ($state, $templateCache, $http) {
+      $http.get('js/templates/categories.html', { cache: $templateCache });
+      $http.get('js/templates/calendar.html', { cache: $templateCache });
+      $http.get('js/templates/eventDetails.html', { cache: $templateCache });
+      $http.get('js/templates/modalSupplier.html', { cache: $templateCache });
+      $http.get('js/templates/modalEvent.html', { cache: $templateCache });
+      $http.get('js/templates/suppliers.html', { cache: $templateCache });
+      $http.get('js/templates/supplierDetails.html', { cache: $templateCache });
+      $http.get('js/directives/templates/eventDetailCard.html', { cache: $templateCache });
     })
 ]);
 

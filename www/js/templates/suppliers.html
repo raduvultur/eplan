@@ -10,15 +10,23 @@
   <div class="list list-inset">
     <label class="item item-input">
       <i class="icon ion-search placeholder-icon"></i>
-      <input type="text" placeholder="Search" id="query" ng-model="query">
+      <input type="text" placeholder="Search" id="query" ng-model="filter.query">
     </label>
+    <div ng-show="categoryId == 10">
+      Capacity <strong>{{filter.capacity}}</strong>+ people
+      <div class="range">
+        <i class="icon ion-ios7-person"></i>
+        <input type="range" name="capacity" min="0" max="300" value="0" step="10" ng-model="filter.capacity">
+        <i class="icon ion-ios7-people"></i>
+      </div>
+    </div>
   </div>
   
   <div class="list">
       <div class="item item-divider text-center">
         {{categorySuppliers.length}} items in {{ categoryName }}
       </div> 
-      <a class="item item-icon-right" ui-sref="eplanmenu.supplierdetails({supplierId: {{supplier.id}} })" ng-repeat="supplier in categorySuppliers | filter:query | orderBy:'name' | orderBy:'id'">
+      <a class="item item-icon-right" ui-sref="eplanmenu.supplierdetails({supplierId: {{supplier.id}} })" ng-repeat="supplier in categorySuppliers | filterMultiple:{name:filter.query,capacity:filter.capacity} | orderBy:'name' | orderBy:'id'">
         <h2>{{ supplier.name }}</h2>
         <p class="margin-zero">
           {{ supplier.address }}
