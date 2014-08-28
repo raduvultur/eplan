@@ -35,3 +35,7 @@ ion-content {background-color: #F9F9F9}
 }
 
 .calendar .activeDay{font-weight: bold;background: none repeat scroll 0 0 #E6F1FC;}
+
+div.infowindow-content {
+    min-width: 220px;
+}

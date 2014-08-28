@@ -14,9 +14,8 @@ function EventService () {
   // Initialise. If the database doesn't exist, it is created
   var eplanDB = new localStorageDB('eplan', localStorage);
   
-  // Check if the database was just created. Useful for initial database setup
-  if( eplanDB.isNew() ) {
-  
+  if( !eplanDB.tableExists('events') ) {
+
       // create the 'events' table
       eplanDB.createTable('events', ['guid', 'name', 'date', 'time', 'location', 'background', 'details']);
   

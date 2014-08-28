@@ -4,6 +4,7 @@ function CategorySuppliersCtrl($scope, $stateParams, $ionicModal, SuppliersServi
   $scope.categoryId = $stateParams.categoryId;
   $scope.categoryName = SuppliersService.getCategoryName($stateParams.categoryId);
   $scope.categorySuppliers = SuppliersService.listCategorySuppliers($stateParams.categoryId);
+  $scope.filterCapacity = 0;
   
   $ionicModal.fromTemplateUrl('js/templates/modalSupplier.html', {
     scope: $scope,
