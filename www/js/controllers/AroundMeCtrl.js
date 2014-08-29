@@ -99,19 +99,7 @@ function AroundMeCtrl($scope, $ionicLoading, $compile) {
       
       locations.push(props);
      });
-    /*
-    var locations = [
-      ['Continental', 45.755139, 21.232109, fontawesome.markers.GLASS, 0.3],   
-      ['Hotel Neon', 45.773622, 21.221745, fontawesome.markers.GLASS, 0.3],   
-      ['Casa del Sole', 45.744455, 21.221474, fontawesome.markers.GLASS, 0.3],   
-      ['Pensiunea Nora', 45.7347285, 21.200904, fontawesome.markers.GLASS, 0.3],
-      ['Maya Rent a Car', 45.7410646, 21.2165899, fontawesome.markers.CAR, 0.3],
-      ['Cofetaria Adi Dia', 45.739382, 21.239782, fontawesome.markers.MAP_MARKER, 0.4],
-      ['Futurevideo Production', 45.732054, 21.240581, fontawesome.markers.CAMERA, 0.3],
-      ['Carm d\'Or', 45.763588, 21.198334, fontawesome.markers.LEAF, 0.3],
-      ['Salon Monica', 45.752567, 21.240648, fontawesome.markers.SCISSORS, 0.3]
-    ];   
-    */
+
     var infowindow = new google.maps.InfoWindow({maxWidth: 220});
   
     var marker, i;

@@ -5,7 +5,8 @@
 .half-opacity{opacity: 0.5}
 .text-center{text-align: center}
 .label-small{width: 10%;font-size: 20px}
-.label-small + input{margin-right: 5px}
+/*.label-small + input{margin-right: 5px}*/
+.item-input{padding: 6px 16px 5px}
 .bar-big {height:80px}
 .bar-big p, .bar-big h2{margin: 0}
 .bar-big .item{padding: 5px 5px 5px 54px}
@@ -39,3 +40,5 @@ ion-content {background-color: #F9F9F9}
 div.infowindow-content {
     min-width: 220px;
 }
+
+.parallax-card {height: 200px;margin: 0; z-index:-1;}

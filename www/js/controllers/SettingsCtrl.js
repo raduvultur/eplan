@@ -12,6 +12,7 @@ function SettingsCtrl($scope, $state, LocalStorageService) {
     LocalStorageService.clear();
     $scope.events = {};
     $scope.user = {};
+    InitDB();
   };
   
 }
