@@ -1,0 +1,31 @@
+<ion-view title="Calendar">
+
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-plus" ng-click="openModalNewEvent()"></button>
+    </ion-nav-buttons>
+
+    <ion-content padding="false" scroll="true">
+      <div class="card no-background">
+        <div class="calendar" ng-model="eventSources" calendar="eventCalendar" config="uiConfig.calendar" ui-calendar="uiConfig.calendar"></div>
+      </div>
+      <div class="card" ng-show="monthView" class="ng-hide">
+        <p>{{selectedDay}}</p>
+      </div>
+    </ion-content>
+
+    <div class="tabs tabs-icon-only">
+      <a class="tab-item" ng-click="previous()">
+        <i class="icon ion-arrow-left-b"></i>
+      </a>
+      <a class="tab-item" ng-click="next()">
+        <i class="icon ion-arrow-right-b"></i>
+      </a>
+      <a class="tab-item" ng-click="changeView('agendaDay', eventCalendar)">
+        <i class="icon ion-clock"></i>
+      </a>
+      <a class="tab-item" ng-click="changeView('month', eventCalendar)">
+        <i class="icon ion-calendar"></i>
+      </a>  
+    </div>
+
+</ion-view>
