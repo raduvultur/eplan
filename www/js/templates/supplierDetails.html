@@ -6,34 +6,40 @@
     <button class="button button-icon icon ion-compose" ng-click="openModalSupplier()"></button>
   </div>
 </ion-header-bar>
-<ion-content>
+<ion-content stellax>
 
-  <div class="list card">
-    <a href="http://maps.google.com/?q={{supplier.address}}" class="item item-icon-left">
+  <div class="list card parallax-card" data-stellar-ratio="0.35">
+      <div id="map" data-tap-disabled="true"></div>
+  </div>
+  
+  <div class="list card margin-zero">
+    <a href="http://maps.google.com/?q={{supplier.address}}" class="item item-icon-left item-condensed">
       <i class="icon ion-ios7-location-outline half-opacity"></i>
       {{supplier.address}}
     </a>
   
-    <a href="tel:{{supplier.phone}}" class="item item-icon-left">
+    <a href="tel:{{supplier.phone}}" class="item item-icon-left item-condensed">
       <i class="icon ion-ios7-telephone-outline half-opacity"></i>
       {{supplier.phone}}
     </a>
   
-    <a href="mailto:{{supplier.email}}" class="item item-icon-left">
+    <a href="mailto:{{supplier.email}}" class="item item-icon-left item-condensed">
       <i class="icon ion-ios7-at-outline half-opacity"></i>
       {{supplier.email}}
     </a>
   
-    <a href="{{supplier.url}}" class="item item-icon-left">
+    <a href="{{supplier.url}}" class="item item-icon-left item-condensed">
       <i class="icon ion-ios7-world-outline half-opacity"></i>
       {{supplier.url}}
     </a>
   </div>
-
-  <p class="padding-horizontal">
-    <button class="button button-block button-positive" ng-click="loadFeed('{{supplier.feedrss}}', false)">Load RSS Feed</button>  
-  </p>
-
+  
+  <div class="list card margin-zero padding-horizontal">
+    <!--<p class="padding-horizontal">-->
+    <button class="button button-block button-balanced">Add to event</button>
+    <button class="button button-block button-positive" ng-click="loadFeed('{{supplier.feedrss}}', false)">Load RSS feed</button>  
+  </div>
+  
   <div class="list card" ng-show="isLoading">
     <div class="item item-icon-left">
       <i class="icon ion-loading-c"></i>
