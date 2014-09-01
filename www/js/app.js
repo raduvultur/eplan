@@ -17,15 +17,6 @@ angular.module('App').config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('eplanmenu.parallax', {
-      url: '/parallax',
-      views: {
-        'menuContent' :{
-          templateUrl: 'js/templates/parallax.html',
-          controller: 'ParallaxCtrl'
-        }
-      }
-    })     
     .state('eplanmenu.calendar', {
       url: '/calendar',
       views: {
