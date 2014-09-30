@@ -9,6 +9,9 @@ function SettingsCtrl($scope, $state, LocalStorageService) {
   
   $scope.deleteDB = function() {
     console.log('Drop DB');
+    var eplanDB = new localStorageDB('eplan', localStorage);
+    eplanDB.drop('eplan');
+    
     LocalStorageService.clear();
     $scope.events = {};
     $scope.user = {};

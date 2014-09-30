@@ -6,6 +6,9 @@
     <button class="button button-icon icon ion-compose" ng-click="openModalSupplier()"></button>
   </div>
 </ion-header-bar>
+<div class="bar bar-loading bar-stable" ng-if="isLoading">
+  <i class="icon ion-loading-c"></i> Loading...
+</div>
 <ion-content stellax>
 
   <div class="list card parallax-card" data-stellar-ratio="0.35">
@@ -36,16 +39,16 @@
   
   <div class="list card margin-zero padding-horizontal">
     <!--<p class="padding-horizontal">-->
-    <button class="button button-block button-balanced">Add to event</button>
+    <button class="button button-block button-balanced" ng-click="openPopover($event)">Add to event</button>
     <button class="button button-block button-positive" ng-click="loadFeed('{{supplier.feedrss}}', false)">Load RSS feed</button>  
   </div>
-  
+  <!--
   <div class="list card" ng-show="isLoading">
     <div class="item item-icon-left">
       <i class="icon ion-loading-c"></i>
       Loading...
     </div>
-  </div>
+  </div>-->
 
   <div class="list card" ng-repeat="entry in feed_result.entries" ng-cloak>
   

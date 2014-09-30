@@ -97,14 +97,6 @@ angular.module('App').run(['$state', '$templateCache', '$http', (function ($stat
     })
 ]);
 
-angular.module('App').directive('emitLastRepeaterElement', function() {
-  return function(scope) {
-    if (scope.$last){
-      scope.$emit('LastRepeaterElement');
-    }
-  };
-});
-
 function InitDB () {
   console.log('ePlan is initializing...');
   // Initialise. If the database doesn't exist, it is created
@@ -170,12 +162,31 @@ function InitDB () {
       eplanDB.createTable('events', ['guid', 'name', 'date', 'time', 'location', 'background', 'details']);
   
       // insert some data
-      eplanDB.insert('events', {guid: 'fdbaf625-8598-4643-e564-5ed74c7cd3a6', name: 'Our Wedding', date: '\"2014-08-31\"', time: '\"18:45\"', location: '70 Avenue des Champs-Élysées, Paris, France', background: 'wedding.jpg', details: 'some details'});
-      eplanDB.insert('events', {guid: 'fdbaf625-8598-4643-e564-5ed74c7cd3a7', name: 'My Birthday Party', date: '\"2014-09-15\"', time: '\"12:30\"', location: '6 Rue Balzac, Paris, France', background: 'birthday.jpg', details: 'my bday, yay!'});
+      eplanDB.insert('events', {guid: 'fdbaf625-8598-4643-e564-5ed74c7cd3a6', name: 'Our Wedding', date: '\"2014-08-31\"', time: '\"18:45\"', location: '70 Avenue des Champs-Élysées, Paris, France', details: 'some details'});
+      eplanDB.insert('events', {guid: 'aaaaf625-8598-4643-e564-5ed74c7cd3a7', name: 'My Birthday Party', date: '\"2014-09-15\"', time: '\"12:30\"', location: '6 Rue Balzac, Paris, France', details: 'my bday, yay!'});
 
       // commit the database to localStorage
       // all create/drop/insert/update/delete operations should be committed
       eplanDB.commit();
   }
+  
+  if( !eplanDB.tableExists('eventSuppliers') ) {
+  
+      // create the 'events' table
+      eplanDB.createTable('eventSuppliers', ['guidevent', 'idsupplier']);
+  
+      // insert some data
+      /*
+      eplanDB.insert('eventSuppliers', {guidevent: 'fdbaf625-8598-4643-e564-5ed74c7cd3a6', idsupplier: '1'});
+      eplanDB.insert('eventSuppliers', {guidevent: 'fdbaf625-8598-4643-e564-5ed74c7cd3a6', idsupplier: '2'});
+      eplanDB.insert('eventSuppliers', {guidevent: 'aaaaf625-8598-4643-e564-5ed74c7cd3a7', idsupplier: '3'});
+      eplanDB.insert('eventSuppliers', {guidevent: 'aaaaf625-8598-4643-e564-5ed74c7cd3a7', idsupplier: '4'});
+      eplanDB.insert('eventSuppliers', {guidevent: 'aaaaf625-8598-4643-e564-5ed74c7cd3a7', idsupplier: '5'});
+      eplanDB.insert('eventSuppliers', {guidevent: 'aaaaf625-8598-4643-e564-5ed74c7cd3a7', idsupplier: '6'});
+      */
+      // commit the database to localStorage
+      // all create/drop/insert/update/delete operations should be committed
+      eplanDB.commit();
+  } 
   
 }

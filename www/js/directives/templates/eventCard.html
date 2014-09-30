@@ -1,11 +1,29 @@
 <div class="card card-event">
-    <div class="item item-text-wrap padding-zero">
-        <a  
-            on-release="letDrag()"
-            on-touch="stopDrag()"  
-            on-hold="showConfirm({{event.ID}})" 
-            on-swipe-right="showConfirm({{event.ID}})" 
-            on-swipe-left="showConfirm({{event.ID}})"
-        ui-sref="eplanmenu.eventdetails({eventId: {{event.ID}} })" class="button button-full button-large button-clear button-dark">{{event.name}}</a>
+    <div class="item item-text-wrap item-event">
+        <a on-release="letDrag()" on-touch="stopDrag()" on-hold="showConfirm({{event.ID}})" 
+            on-swipe-right="showConfirm({{event.ID}})" on-swipe-left="showConfirm({{event.ID}})"
+            ui-sref="eplanmenu.eventdetails({eventId: {{event.ID}} })" class="button button-full button-large button-clear button-dark button-event">
+            
+            <div class="row">
+
+              <div class="col col-80">
+                <div class="event-title">{{event.name}}</div>
+                <div class="row event-details">
+                    <div class="col">
+                        {{event.date}} @ {{event.time}}
+                    </div>
+                </div>
+              </div>
+              
+              <div class="col">
+                  <div class="row"><div class="col pay pay-rest">800</div></div>
+                  <div class="row"><div class="col pay pay-upfront">400</div></div>
+                  <div class="row"><div class="col pay pay-price">999999</div></div>
+              </div>              
+            </div>
+
+            
+
+        </a>
     </div>
 </div> 

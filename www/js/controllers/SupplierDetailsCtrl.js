@@ -1,5 +1,5 @@
-angular.module('App').controller("SupplierDetailsCtrl", ["$scope", "$stateParams", "$ionicModal", "SuppliersService", "FeedService", SupplierDetailsCtrl]);
-function SupplierDetailsCtrl($scope, $stateParams, $ionicModal, SuppliersService, FeedService) {
+angular.module('App').controller("SupplierDetailsCtrl", ["$scope", "$stateParams", "$ionicModal", "$ionicPopover", "SuppliersService", "FeedService", SupplierDetailsCtrl]);
+function SupplierDetailsCtrl($scope, $stateParams, $ionicModal, $ionicPopover, SuppliersService, FeedService) {
 
   $scope.supplier = SuppliersService.getSupplier($stateParams.supplierId);
  
@@ -30,10 +30,6 @@ function SupplierDetailsCtrl($scope, $stateParams, $ionicModal, SuppliersService
   marker.setClickable(false);
 
 //----- MAP END
- 
-  $scope.callSupplier = function() {
-    console.log('Call Supplier ', $scope.supplier.phone);
-  }
 
   $ionicModal.fromTemplateUrl('js/templates/modalSupplier.html', {
     scope: $scope,
@@ -48,6 +44,23 @@ function SupplierDetailsCtrl($scope, $stateParams, $ionicModal, SuppliersService
   $scope.closeModalSupplier = function() {
     $scope.modalSupplier.hide();
   }; 
+  
+  $ionicPopover.fromTemplateUrl('js/templates/popoverAddToEvent.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  
   
 	$scope.loadFeed = function(url, addFeed) {
 		$scope.setLoading(true);

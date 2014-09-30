@@ -29,9 +29,6 @@ function EventService () {
   EventService.saveEvent = function(event) {
     var eventtime = JSON.stringify(event.time);
     var eventdate = JSON.stringify(event.date);
-    if (!event.background || event.background === ''){
-      event.background = 'event.jpg';
-    }
     eplanDB.insertOrUpdate('events',
       {guid: event.guid},
       {guid: event.guid, name: event.name, date: eventdate, time: eventtime, location: event.location, details: event.details, background: event.background}
@@ -40,8 +37,51 @@ function EventService () {
   };
     
   EventService.list = function() {
-    return eplanDB.queryAll('events', { sort: [['date', 'DESC'], ['name', 'ASC']] });
+    var events = eplanDB.queryAll('events', { sort: [['date', 'DESC'], ['name', 'ASC']] });
+    
+    var index;
+    var len = events.length;
+    for (index = 0; index < len; ++index) {
+      event = events[index];
+      event.time = JSON.parse(event.time);
+      event.date = JSON.parse(event.date);
+      //console.log(events[index]);
+    }
+    
+    return events;
   };
+  
+  EventService.suppliers = function(eventGuid) {
+    var suppIDs = eplanDB.queryAll("eventSuppliers", { query: {"guidevent": eventGuid} });
+    
+    var eventSuppliers = [];
+    
+    var index;
+    var len = suppIDs.length;
+    for (index = 0; index < len; ++index) {
+      var supplier = eplanDB.query("suppliers", {ID: suppIDs[index].idsupplier})[0];
+      eventSuppliers.push(supplier);
+    }
+    
+    return eventSuppliers;
+  }
+  
+  EventService.addSupplier = function(eventGuid, idsupplier) {
+    console.log('adding eventguid=' + eventGuid + ' idsupplier=' + idsupplier);
+    
+    //check if supplier already added to the event - prevent duplicate suppliers  
+    var supplierExists = eplanDB.queryAll("eventSuppliers", { query: {"guidevent": eventGuid, "idsupplier": JSON.stringify(idsupplier)} });
+    if (supplierExists.length<1) {
+      eplanDB.insert("eventSuppliers", {guidevent: eventGuid, idsupplier: idsupplier});
+      eplanDB.commit();
+    }
+  }
+  
+  EventService.removeSupplier = function(eventGuid, idsupplier) {
+    console.log('deleting eventguid=' + eventGuid + ' idsupplier=' + idsupplier);
+    eplanDB.deleteRows("eventSuppliers", {guidevent: eventGuid, idsupplier: idsupplier});
+    eplanDB.commit();
+  }
   
   return EventService;
 }

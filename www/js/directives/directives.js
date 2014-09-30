@@ -15,3 +15,11 @@ angular.module('App').directive('stellax', function ($timeout) {
 		}
 	};
 });
+
+angular.module('App').directive('emitLastRepeaterElement', function() {
+  return function(scope) {
+    if (scope.$last){
+      scope.$emit('LastRepeaterElement');
+    }
+  };
+});
