@@ -1,0 +1,12 @@
+<ion-popover-view ng-controller="PopoverAddToEventCtrl">
+    <ion-header-bar>
+      <h1 class="title">Select an Event</h1>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list">
+        <a class="item" ng-click="addToEvent('{{event.guid}}')" ng-repeat="event in events | orderBy:'name'">
+          {{ event.name }}
+        </a>
+      </div>
+    </ion-content>
+</ion-popover-view>
