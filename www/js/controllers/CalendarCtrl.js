@@ -85,6 +85,9 @@ function CalendarCtrl($scope, $state, $log, $ionicNavBarDelegate, $ionicModal, $
   $scope.uiConfig = {
     calendar:{
       //height: 200,
+      //contentHeight: 'auto',
+			//height: 'auto',
+      firstDay: 1,
       editable: true,
       header:{
         left: '',

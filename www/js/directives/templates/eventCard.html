@@ -4,26 +4,25 @@
             on-swipe-right="showConfirm({{event.ID}})" on-swipe-left="showConfirm({{event.ID}})"
             ui-sref="eplanmenu.eventdetails({eventId: {{event.ID}} })" class="button button-full button-large button-clear button-dark button-event">
             
-            <div class="row">
-
-              <div class="col col-80">
-                <div class="event-title">{{event.name}}</div>
-                <div class="row event-details">
-                    <div class="col">
-                        {{event.date}} @ {{event.time}}
+            <div class="row" style="padding: 10px;">
+                <div class="col">
+                    <knob knob-data="900" knob-max='1200' knob-options="knobOptions"></knob>
+                </div> 
+                <div class="col col-75">
+                    <div class="row">
+                        <div class="event-title line-clip">{{event.name}}</div>      
+                    </div>
+                    <div class="row event-details">
+                        <div class="col col-75">
+                            <div class="row line-clip">{{event.date}} @ {{event.time}}</div>
+                            <div class="row line-clip">{{event.location}}</div>
+                        </div>
+                        <div class="col">
+                            <span class="event-cost">1200</span>
+                        </div>
                     </div>
                 </div>
-              </div>
-              
-              <div class="col">
-                  <div class="row"><div class="col pay pay-rest">800</div></div>
-                  <div class="row"><div class="col pay pay-upfront">400</div></div>
-                  <div class="row"><div class="col pay pay-price">999999</div></div>
-              </div>              
             </div>
-
-            
-
         </a>
     </div>
 </div> 

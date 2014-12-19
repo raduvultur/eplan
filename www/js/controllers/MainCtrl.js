@@ -80,5 +80,14 @@ function MainCtrl($scope, $state, $log, $ionicSideMenuDelegate, $ionicNavBarDele
      }
    });
  }; 
-  
+ 
+  //knobs
+  $scope.knobOptions = {
+      'height':60,
+      'width':60,
+      'displayInput': true,
+      'readOnly': true,
+      'fgColor':'#4A87EE',
+      'bgColor':'#F9F9F9'
+  };
 }

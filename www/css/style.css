@@ -31,21 +31,31 @@ ion-content {background-color: #F9F9F9}
 
 .fc-header-title h2 {font-size: 130%}
 .fc-today {background: none repeat scroll 0 0 #98CAFF}
-.fc-agenda {padding-bottom: 100px;}
+.fc-agenda {padding-bottom: 55px;}
 .calendar .activeDay{font-weight: bold;background: none repeat scroll 0 0 #E6F1FC;}
+/*
+.fc-basic-view tbody .fc-row {min-height: 2.4em;}
+.fc-ltr .fc-basic-view .fc-day-number {text-align: center;}
+.fc-basic-view td.fc-week-number span, .fc-basic-view td.fc-day-number {padding-top: 6px;}
+*/
+.card-calendar {margin: 5px 0 0;}
+.fc-grid .fc-day-number {float: right;padding: 5px;}
 
 div.infowindow-content {min-width: 220px}
 
 .parallax-card {height: 160px;margin: 0; z-index:-1;}
 
-.event-title{line-height: 1;padding-bottom: 10px;padding-top: 10px;}
+.event-title{line-height: 1;padding-bottom: 10px;}
 .event-details{font-size: 10px;line-height: normal}
 .event-details .icon:before {font-size: 20px;line-height: 55%;}
 .event-details .icon {padding-right: 3px;}
+.event-cost{color: #4A87EE;font-size: 2em;font-weight: bold;margin-left: 5px;}
+    
+.line-clip {display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 100%;}
 
 .card-event {border-radius: 0 !important;}
 .item-event {border-radius: 0 !important;padding: 0}
-.button.button-event{margin: 0;max-height: none;min-height: 0;padding: 0;border-bottom-width: 0;border-top-width: 0;}
+.button.button-event{margin: 0;max-height: none;min-height: 0;padding: 0;border-bottom-width: 0;border-top-width: 0;text-align: left;}
 .card-event .row,.card-event .col {line-height: normal;margin: 0;padding: 0;}
 .card-event .pay {color: #FFFFFF;font-size: 12px;padding-bottom: 2px;padding-top: 2px;}
 .pay.pay-rest {background-color: #0D44FF;}
